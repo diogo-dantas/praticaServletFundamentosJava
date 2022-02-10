@@ -23,7 +23,8 @@ public class NovaEmpresaServlet extends HttpServlet {
 		String nomeEmpresa = request.getParameter("nome");
 
 		PrintWriter out = response.getWriter();
-		out.println("<html><body> Empresa " + nomeEmpresa +" cadastrada com sucesso! </body></html>");
+		out.println("<html><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">" + "<body> Empresa "
+				+ nomeEmpresa + " cadastrada com sucesso! </body></html>");
 
 	}
 
