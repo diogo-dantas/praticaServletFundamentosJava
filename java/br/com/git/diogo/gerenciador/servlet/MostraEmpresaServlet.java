@@ -24,7 +24,7 @@ public class MostraEmpresaServlet extends HttpServlet {
 
 		Banco banco = new Banco();
 
-		Empresa empresa = banco.buscaEmpresaPeloId(id);
+		Empresa empresa = banco.buscaEmpresaPelaId(id);
 
 		request.setAttribute("empresa", empresa);
 

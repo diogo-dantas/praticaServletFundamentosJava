@@ -32,7 +32,7 @@ public class Banco {
 
 	}
 
-	public Empresa buscaEmpresaPeloId(Integer id) {
+	public Empresa buscaEmpresaPelaId(Integer id) {
 		for (Empresa empresa : lista) {
 			if (empresa.getId() == id) {
 				return empresa;
