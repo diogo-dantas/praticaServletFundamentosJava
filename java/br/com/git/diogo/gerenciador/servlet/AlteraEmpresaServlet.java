@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.git.diogo.gerenciador.modelo.Banco;
+import br.com.git.diogo.gerenciador.modelo.Empresa;
+
 /**
  * Servlet implementation class AlteraEmpresaServlet
  */

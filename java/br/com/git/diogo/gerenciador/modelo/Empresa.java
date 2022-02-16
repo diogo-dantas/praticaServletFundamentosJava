@@ -1,4 +1,4 @@
-package br.com.git.diogo.gerenciador.servlet;
+package br.com.git.diogo.gerenciador.modelo;
 
 import java.util.Date;
 
