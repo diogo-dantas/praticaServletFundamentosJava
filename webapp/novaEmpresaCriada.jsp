@@ -3,11 +3,13 @@
 <html>
 <body>
 	<c:if test="${empty empresa}">
+           <br />
             Não há empresas para cadastrar..
         </c:if>
 
 	<br />
-	<a href="localhost:8080/gerenciador/formNovaEmpresa.jsp"><b>Cadastre uma nova empresa!</b></a>
+	Cadastre uma nova empresa através deste 
+	<a href="localhost:8080/gerenciador/formNovaEmpresa.jsp"><b>link</b></a>.
 
 
 </body>
