@@ -2,6 +2,7 @@ package br.com.git.diogo.gerenciador.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,25 +24,36 @@ public class UnicaEntradaServlet extends HttpServlet {
 
 		String paramAcao = request.getParameter("acao");
 
+		String nome = null;
+
 		if (paramAcao.equals("ListaEmpresas")) {
 			ListaEmpresas acao = new ListaEmpresas();
-			acao.executa(request, response);
+			nome = acao.executa(request, response);
 
 		} else if (paramAcao.equals("MostraEmpresa")) {
 			MostraEmpresa acao = new MostraEmpresa();
-			acao.executa(request, response);
+			nome = acao.executa(request, response);
 		} else if (paramAcao.equals("RemoveEmpresa")) {
 			RemoveEmpresa acao = new RemoveEmpresa();
-			acao.executa(request, response);
+			nome = acao.executa(request, response);
 
-		}else if (paramAcao.equals("CriaEmpresa")) {
+		} else if (paramAcao.equals("CriaEmpresa")) {
 			CriaEmpresa acao = new CriaEmpresa();
-			acao.executa(request, response);
+			nome = acao.executa(request, response);
 
-		}else if (paramAcao.equals("AlteraEmpresa")) {
+		} else if (paramAcao.equals("AlteraEmpresa")) {
 			AlteraEmpresa acao = new AlteraEmpresa();
-			acao.executa(request, response);
+			nome = acao.executa(request, response);
 
+		}
+
+		String[] tipoEElemento = nome.split(":");
+
+		if (tipoEElemento[0].equals("foward")) {
+			RequestDispatcher rd = request.getRequestDispatcher(tipoEElemento[1]);
+			rd.forward(request, response);
+		} else {
+			response.sendRedirect(tipoEElemento[1]);
 		}
 
 	}
