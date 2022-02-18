@@ -31,8 +31,7 @@
 	</ul>
 	<br />
 	
-	<a href="localhost:8080/gerenciador/formNovaEmpresa.jsp"><b>Cadastre uma nova empresa!</b></a>
+	<a href="localhost:8080/gerenciador/entrada?acao=FormNovaEmpresa"><b>Cadastre uma nova empresa!</b></a>
 	
 </body>
 </html>
-</element>
