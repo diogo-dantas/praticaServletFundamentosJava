@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.git.diogo.gerenciador.acao.Acao;
 import br.com.git.diogo.gerenciador.acao.AlteraEmpresa;
 import br.com.git.diogo.gerenciador.acao.CriaEmpresa;
 import br.com.git.diogo.gerenciador.acao.FormNovaEmpresa;
@@ -25,32 +26,20 @@ public class UnicaEntradaServlet extends HttpServlet {
 
 		String paramAcao = request.getParameter("acao");
 
-		String nome = null;
+		String nomeDaClasse = "br.com.git.diogo.gerenciador.acao." + paramAcao;
 
-		if (paramAcao.equals("ListaEmpresas")) {
-			ListaEmpresas acao = new ListaEmpresas();
-			nome = acao.executa(request, response);
+		Acao acao;
 
-		} else if (paramAcao.equals("MostraEmpresa")) {
-			MostraEmpresa acao = new MostraEmpresa();
-			nome = acao.executa(request, response);
-		} else if (paramAcao.equals("RemoveEmpresa")) {
-			RemoveEmpresa acao = new RemoveEmpresa();
-			nome = acao.executa(request, response);
+		try {
+			Class classe = Class.forName(nomeDaClasse);
 
-		} else if (paramAcao.equals("CriaEmpresa")) {
-			CriaEmpresa acao = new CriaEmpresa();
-			nome = acao.executa(request, response);
+			acao = (Acao) classe.newInstance();
 
-		} else if (paramAcao.equals("AlteraEmpresa")) {
-			AlteraEmpresa acao = new AlteraEmpresa();
-			nome = acao.executa(request, response);
-
-		} else if (paramAcao.equals("FormNovaEmpresa")) {
-			FormNovaEmpresa acao = new FormNovaEmpresa();
-			nome = acao.executa(request, response);
-
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			throw new ServletException(e);
 		}
+
+		String nome = acao.executa(request, response);
 
 		String[] tipoEElemento = nome.split(":");
 
@@ -64,3 +53,30 @@ public class UnicaEntradaServlet extends HttpServlet {
 	}
 
 }
+
+//		String nome = null;
+//
+//		if (paramAcao.equals("ListaEmpresas")) {
+//			ListaEmpresas acao = new ListaEmpresas();
+//			nome = acao.executa(request, response);
+//
+//		} else if (paramAcao.equals("MostraEmpresa")) {
+//			MostraEmpresa acao = new MostraEmpresa();
+//			nome = acao.executa(request, response);
+//		} else if (paramAcao.equals("RemoveEmpresa")) {
+//			RemoveEmpresa acao = new RemoveEmpresa();
+//			nome = acao.executa(request, response);
+//
+//		} else if (paramAcao.equals("CriaEmpresa")) {
+//			CriaEmpresa acao = new CriaEmpresa();
+//			nome = acao.executa(request, response);
+//
+//		} else if (paramAcao.equals("AlteraEmpresa")) {
+//			AlteraEmpresa acao = new AlteraEmpresa();
+//			nome = acao.executa(request, response);
+//
+//		} else if (paramAcao.equals("FormNovaEmpresa")) {
+//			FormNovaEmpresa acao = new FormNovaEmpresa();
+//			nome = acao.executa(request, response);
+//
+//		}

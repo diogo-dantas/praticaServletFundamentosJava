@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.git.diogo.gerenciador.modelo.Banco;
 import br.com.git.diogo.gerenciador.modelo.Empresa;
 
-public class CriaEmpresa {
+public class CriaEmpresa implements Acao{
 
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
