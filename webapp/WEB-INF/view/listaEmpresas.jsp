@@ -11,6 +11,11 @@
 <title>Empresas Cadastradas</title>
 </head>
 <body>
+	Usuario Logado: ${usuarioLogado.login}
+
+    <br>
+    <br>
+    <br>
 
 	<i>Lista de empresas cadastradas: </i>
 	<br />
