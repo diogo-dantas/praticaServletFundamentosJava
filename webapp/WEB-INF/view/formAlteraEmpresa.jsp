@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 
 <c:url value="/entrada?acao=AlteraEmpresa" var="linkServletAlteraEmpresa" />
-
+<c:import url="logout-parcial.jsp"/>
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	Usuario Logado: ${usuarioLogado.login }
+
 
 	<form action="${linkServletAlteraEmpresa}" method="post">
 

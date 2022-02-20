@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@page import="br.com.git.diogo.gerenciador.modelo.Empresa" %>
+<c:import url="logout-parcial.jsp"/>
+
 
 <!DOCTYPE html>
 
@@ -11,7 +13,9 @@
 <title>Empresas Cadastradas</title>
 </head>
 <body>
+
 	Usuario Logado: ${usuarioLogado.login}
+	
 
     <br>
     <br>
